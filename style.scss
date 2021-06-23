@@ -42,7 +42,6 @@ header {
                 padding: 10px;
                 height: 20px;
                 line-height: 20px;
-                margin-left: 5px;
                 color: #fff;
                 text-decoration: none;
                 border: 2px solid rgba(255, 255, 255, 0);
@@ -124,10 +123,12 @@ header {
             height: 350px;
             background: url("images/img-connect.jpg");
             background-repeat: no-repeat;
+            background-position: center;
+
         }
     }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px)  {
     #hero {
         margin-bottom: 100px;
         h1 {
@@ -149,7 +150,7 @@ header {
                 width: 600px;
                 height: 350px;
                 flex-basis: 40%;
-                margin-left: 80px;
+                margin: auto;
             }
         }
     }
@@ -351,7 +352,6 @@ footer {
                     padding: 10px;
                     height: 20px;
                     line-height: 20px;
-                    margin-left: 5px;
                     color: #fff;
                     text-decoration: none;
                     border: 2px solid rgba(255, 255, 255, 0);

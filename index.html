@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
     <title>Connect to the World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
 
     <header>
-        <div class="header-logo">
+        <div class="header-logo animate__animated animate__backInLeft">
             <a href="#">
                 <img src="icons/icon-sun.png" alt="">
                 <span>ALWAYS OUTDORS</span>
             </a>
         </div>
 
-        <div class="header-nav">
+        <div class="header-nav animate__animated animate__backInDown">
             <ul>
                 <li><a href="#">Destinations</a></li>
                 <li><a href="#">Travel Styles</a></li>
@@ -27,7 +29,7 @@
             </ul>
         </div>
 
-        <div class="header-search">
+        <div class="header-search animate__animated animate__backInRight">
             <a href="#">
                 <img src="icons/icon-search.png" alt="">
                 <span>Search</span>
@@ -38,9 +40,9 @@
 
 
     <section id="hero">
-        <h1>CONNECT TO THE WORLD</h1>
+        <h1 class="animate__animated animate__shakeX">CONNECT TO THE WORLD</h1>
 
-        <div class="wrapper">
+        <div class="wrapper animate__animated animate__backInUp">
 
             <div class="text">
                 <h3>Our World deserves more you</h3>
@@ -107,7 +109,7 @@
 
 
     <section id="tours">
-        <h2>MOST POPULAR TOURS</h2>
+        <h2 class="animateHeader">MOST POPULAR TOURS</h2>
         <div class="wrapper">
             <article class="tour">
 
@@ -192,5 +194,110 @@
     </footer>
 
 </body>
+
+
+<script>
+
+
+    var article_elements = $('.article');
+    var tour_elements = $('.tour');
+    var animateHeader = $('.animateHeader');
+    var $window = $(window);
+
+    function articleAnimation() {
+        var window_height = $window.height();
+        var window_top_position = $window.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each(article_elements, function () {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+            
+         
+         
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('animate__animated animate__backInLeft');
+            } else {
+                $element.removeClass('animate__animated animate__backInLeft');
+            }
+
+           
+        });
+    }
+
+    function tourAnimation() {
+        var window_height = $window.height();
+        var window_top_position = $window.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each(tour_elements, function () {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+         
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('animate__animated animate__flipInY');
+            } else {
+                $element.removeClass('animate__animated animate__flipInY');
+            }
+        });
+    }
+
+    function headerAnimation() {
+        var window_height = $window.height();
+        var window_top_position = $window.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each(animateHeader, function () {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+         
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('animate__animated animate__backInDown');
+            } else {
+                $element.removeClass('animate__animated animate__backInDown');
+            }
+        });
+    }
+
+    function socialAnimation() {
+        var window_height = $window.height();
+        var window_top_position = $window.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each($('.social'), function () {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+         
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('animate__animated animate__flip');
+            } else {
+                $element.removeClass('animate__animated animate__flip');
+            }
+        });
+    }
+
+    $window.on('scroll resize', articleAnimation);
+    $window.on('scroll resize', tourAnimation);
+    $window.on('scroll resize', headerAnimation);
+    $window.on('scroll resize', socialAnimation);
+    $window.trigger('scroll');
+
+</script>
 
 </html>
